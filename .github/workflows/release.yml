@@ -1,9 +1,17 @@
 name: basebuild
 
+# on:
+#   push:
+#     tags:
+#       - "*"
 on:
-  push:
-    tags:
-      - "*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'release version'
+        required: true
+        default: '1.0.0'
+
 
 jobs:
   goreleaser:
